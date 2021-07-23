@@ -13,7 +13,7 @@ app.get('/api/hddn', (req, res) => {
     console.log(req.query)
     let secret = req.query.secret || null;
     if (secret == "einstein") {
-        res.send({ "response": "evil_cookie" })
+        res.send({ "response": "don't ask apple's weather app about this number, but it is quite useful to you" })
     }
     else {
         res.send({ "response": "Hello World" })
