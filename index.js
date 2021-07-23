@@ -12,11 +12,14 @@ app.set('view engine', 'ejs');
 app.get('/api/hddn', (req, res) => {
     console.log(req.query)
     let secret = req.query.secret || null;
-    if (secret == "einstein") {
-        res.send({ "response": "don't ask apple's weather app about this number, but it is quite useful to you" })
+    if (secret == "newshepard") {
+        res.send({
+            "heading": "we really miss bhyi.tk but if you search well enough you may find an archive of it with a current ts member. it really has some well-known contributors.",
+            "comment": "gYs9nS8LlZ8"
+        })
     }
     else {
-        res.send({ "response": "Hello World" })
+        res.send({ "heading": "sidney monster is your friend here", "comment": "once you figure it out, check out :the start of the hundred years war" })
     }
 })
 
