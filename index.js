@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
+const path = require('path');
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -19,6 +20,11 @@ app.get('/api/hddn', (req, res) => {
     }
 })
 
+app.get('/dino', function(req, res) {
+    res.sendFile(path.join(__dirname, '/dino.html'));
+  });
+  
+  
 //ejs file for cookie changing ctf.
 app.get('*', async (req, res) => {
     res.render('index', { title: 'ChepBin' })
