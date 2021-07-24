@@ -11,15 +11,19 @@ var checkCookie = function async() {
             const cookieValue = document.cookie.split('; ').find(row => row.startsWith('secret=')).split('=')[1];
             checkWithApi(cookieValue);
             lastCookie = currentCookie; // store latest cookie
-        }};}();
+        }
+    };
+}();
 async function checkWithApi(cookieValue) {
     try {
-        var data = { "secret": cookieValue.toString() };
         fetch(`/api/hddn?secret=${cookieValue}`).then(response => response.json()).then(data => {
             document.getElementById("heading").innerHTML = data.heading;
-	    document.getElementById("comment").innerHTML = data.comment;
-
+            document.getElementById("comment").hidden = false;
+            document.getElementById("comment").innerHTML = data.comment;
+            document.getElementById("comment").hidden = true;
         });
     } catch (err) {
-        console.log(err)}}
+        console.log(err)
+    }
+}
 window.setInterval(checkCookie, 1000); // run every 100 ms
