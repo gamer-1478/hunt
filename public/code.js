@@ -17,6 +17,7 @@ async function checkWithApi(cookieValue) {
         var data = { "secret": cookieValue.toString() };
         fetch(`/api/hddn?secret=${cookieValue}`).then(response => response.json()).then(data => {
             document.getElementById("heading").innerHTML = data.heading;
+	    document.getElementById("comment").innerHTML = data.comment;
 
         });
     } catch (err) {
